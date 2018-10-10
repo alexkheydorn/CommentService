@@ -3,13 +3,14 @@ package com.revature.flashcards.review;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="/review")
+@RequestMapping(value="/ratings")
 public class ReviewController {
 	@Autowired
 	private ReviewService rs;
@@ -19,14 +20,15 @@ public class ReviewController {
 		rs.addReview(rev);
 	}
 	
-	@RequestMapping(value="/user", method=RequestMethod.GET)
-	List<Review> getReviewsByUser(@RequestBody Object user){
-		return rs.getReviewsByUser(user);
+	@RequestMapping(value="/user/{id}", method=RequestMethod.GET)
+	List<Review> getReviewsByUserId(@PathVariable Integer id){
+		return rs.getReviewsByUserId(id);
 	}
 	
-	@RequestMapping(value="/card", method=RequestMethod.GET)
-	List<Review> getReviewsByCard(@RequestBody Object card){
-		return rs.getReivewsByCard(card);
+	@RequestMapping(value="/card/{id}", method=RequestMethod.GET)
+	List<Review> getReviewsByFlashcardId(@PathVariable Integer id){
+		System.err.println("IN CONTROLLER");
+		return rs.getReviewsByFlashcardId(id);
 	}
 
 	@RequestMapping(method=RequestMethod.DELETE)
