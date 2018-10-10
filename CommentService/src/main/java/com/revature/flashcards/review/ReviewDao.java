@@ -6,7 +6,7 @@ import com.revature.flashcards.review.Review;
 
 
 public interface ReviewDao extends CrudRepository<Review, Integer> {
-	public List<Review> getReviewsByUser(Object user);
-	public List<Review> getReivewsByCard(Object card);
-
+	// Changed the method name to match what the query wanted
+	public List<Review> findByuserid(int userId);
+	public List<Review> findBycardid(int cardId);
 }

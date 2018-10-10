@@ -30,13 +30,15 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List<Review> getReviewsByUser(Object user) {
-		return rd.getReviewsByUser(user);
+	public List<Review> getReviewsByUser(int userId) {
+		// matched name to dao layer
+		return rd.findByuserid(userId);
 	}
 
 	@Override
-	public List<Review> getReivewsByCard(Object card) {
-		return rd.getReivewsByCard(card);
+	public List<Review> getReivewsByCard(int cardId) {
+		// matched name to dao layer
+		return rd.findBycardid(cardId);
 	}
 
 	@Override
