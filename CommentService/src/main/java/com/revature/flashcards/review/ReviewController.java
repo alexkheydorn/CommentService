@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="/review")
+@RequestMapping(value="/ratings")
 public class ReviewController {
 	@Autowired
 	private ReviewService rs;
@@ -21,13 +21,14 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="/user/{id}", method=RequestMethod.GET)
-	List<Review> getReviewsByUser(@PathVariable int id){
-		return rs.getReviewsByUser(id);
+	List<Review> getReviewsByUserId(@PathVariable Integer id){
+		return rs.getReviewsByUserId(id);
 	}
 	
-	@RequestMapping(value="/card{id}", method=RequestMethod.GET)
-	List<Review> getReviewsByCard(@PathVariable int id){
-		return rs.getReivewsByCard(id);
+	@RequestMapping(value="/card/{id}", method=RequestMethod.GET)
+	List<Review> getReviewsByFlashcardId(@PathVariable Integer id){
+		System.err.println("IN CONTROLLER");
+		return rs.getReviewsByFlashcardId(id);
 	}
 
 	@RequestMapping(method=RequestMethod.DELETE)
