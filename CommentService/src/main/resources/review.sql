@@ -1,4 +1,3 @@
-connect flashcard/p4ssw0rd;
 drop table review; 
 drop sequence review_seq;
 
@@ -9,7 +8,7 @@ create table review
     userId number(20) not null,
     commentStr varchar2(1000),
     rating number(5),
-    reviewDate timestamp
+    reviewDate varchar2(50)
 );
 
 create sequence review_seq;

@@ -7,7 +7,7 @@ public interface ReviewService {
 	public void addReview(Review rev);
 	public void updateReview(Review rev);
 	public void deleteReview(Review rev);
-	public List<Review> getReviewsByUser(Object user);
-	public List<Review> getReivewsByCard(Object card);
+	public List<Review> getReviewsByUserId(Integer userId);
+	public List<Review> getReviewsByFlashcardId(Integer flashcardId);
 	public Review getReviewById(int id);
 }
